@@ -66,7 +66,8 @@ JAVA_CMD=${JAVA_CMD:=$(which java)}
 WRAPPER_DEST=${WRAPPER_DEST:=/usr/bin/java}
 WRAPPER_DEST_DIR=$(dirname "$WRAPPER_DEST")
 
-SCRIPT_DIR=$(readlink -f $(dirname $0))
+SCRIPT_DIR_PRE="readlink -f $(dirname $0)"
+SCRIPT_DIR=$($SCRIPT_DIR_PRE)
 WRAPPER_LOC="$SCRIPT_DIR/java_wrapper.sh"
 
 # Make sure the wrapper is executable.
